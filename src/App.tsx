@@ -5,8 +5,8 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Chat from './components/Chat/Chat';
 import Poll from './components/Poll/Poll';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { Toaster } from "@/components/ui/sonner";
 
 // Create context for global state
 export const AppContext = createContext<{
@@ -67,6 +67,7 @@ const App: React.FC = () => {
           </div>
         </div>
       </Router>
+      <Toaster />
     </AppContext.Provider>
   );
 };
