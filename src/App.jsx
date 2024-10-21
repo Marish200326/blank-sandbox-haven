@@ -15,7 +15,6 @@ import Announcement from './components/Admin/Announcement';
 import PollResult from './components/Admin/PollResult';
 import UserAnnouncements from './components/User/UserAnnouncements';
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram } from 'lucide-react';
 
 const queryClient = new QueryClient();
 
@@ -44,12 +43,12 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <BrowserRouter>
-            <div className="flex flex-col min-h-screen bg-background text-foreground">
-              <nav className="bg-secondary shadow-md">
+            <div className="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+              <nav className="bg-white shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="flex justify-between h-16">
                     <div className="flex items-center">
-                      <Link to="/" className="flex-shrink-0 flex items-center text-primary font-bold text-xl link-hover">
+                      <Link to="/" className="flex-shrink-0 flex items-center text-gray-900 font-bold text-xl">
                         Real-Time App
                       </Link>
                     </div>
@@ -57,30 +56,30 @@ const App = () => {
                       {user ? (
                         <>
                           <Link to="/poll-result" className="mr-4">
-                            <Button variant="outline" className="button-hover">Poll Results</Button>
+                            <Button variant="outline">Poll Results</Button>
                           </Link>
                           <Link to="/announcements" className="mr-4">
-                            <Button variant="outline" className="button-hover">Announcements</Button>
+                            <Button variant="outline">Announcements</Button>
                           </Link>
                           {adminStatus && (
                             <>
                               <Link to="/dashboard" className="mr-4">
-                                <Button variant="outline" className="button-hover">Dashboard</Button>
+                                <Button variant="outline">Dashboard</Button>
                               </Link>
                               <Link to="/announcement" className="mr-4">
-                                <Button variant="outline" className="button-hover">Create Announcement</Button>
+                                <Button variant="outline">Create Announcement</Button>
                               </Link>
                             </>
                           )}
-                          <Button variant="outline" className="button-hover" onClick={() => auth.signOut()}>Logout</Button>
+                          <Button variant="outline" onClick={() => auth.signOut()}>Logout</Button>
                         </>
                       ) : (
                         <>
                           <Link to="/login" className="mr-4">
-                            <Button variant="outline" className="button-hover">Login</Button>
+                            <Button variant="outline">Login</Button>
                           </Link>
                           <Link to="/register">
-                            <Button className="button-hover">Register</Button>
+                            <Button>Register</Button>
                           </Link>
                         </>
                       )}
@@ -120,8 +119,8 @@ const App = () => {
                       <Route path="/register" element={<Register />} />
                       <Route path="/" element={
                         <div className="text-center">
-                          <h1 className="text-4xl font-bold mb-4 text-primary">Welcome to Real-Time App</h1>
-                          <p className="text-xl text-muted-foreground">Please login or register to continue.</p>
+                          <h1 className="text-4xl font-bold mb-4 text-gray-900">Welcome to Real-Time App</h1>
+                          <p className="text-xl text-gray-600">Please login or register to continue.</p>
                         </div>
                       } />
                       <Route path="*" element={<Navigate to="/" replace />} />
@@ -130,14 +129,9 @@ const App = () => {
                 </div>
               </main>
 
-              <footer className="footer">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center space-x-4">
-                  <a href="https://www.facebook.com/nathaniel.guerra.77" target="_blank" rel="noopener noreferrer" className="link-hover">
-                    <Facebook className="social-icon" />
-                  </a>
-                  <a href="https://www.instagram.com/ntnl_lg/" target="_blank" rel="noopener noreferrer" className="link-hover">
-                    <Instagram className="social-icon" />
-                  </a>
+              <footer className="bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center items-center">
+                  <p className="text-gray-600">&copy; {new Date().getFullYear()} Real-Time App. All rights reserved.</p>
                 </div>
               </footer>
             </div>
